@@ -1,0 +1,22 @@
+<template>
+  <h1>Sign Up</h1>
+  <div class="alert alert-danger" if.bind="error">
+      ${error}
+    </div>
+  <form submit.delegate="signup()">
+      <div class="form-row align-items-center">
+        <div class="col-sm-3 my-1">
+          <label class="sr-only" for="inlineFormInputGroupUsername">Name</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input value.bind="name" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Enter your name">
+          </div>
+        </div>
+        <div class="col-auto my-1">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+</template>

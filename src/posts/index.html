@@ -1,3 +1,6 @@
 <template>
-  <h1>${message}</h1>
+    <require from="../resources/elements/post-list.html"></require>
+<post-list error.bind="error", posts.bind="posts">
+  <h1>This is all we got!</h1>
+</post-list>
 </template>

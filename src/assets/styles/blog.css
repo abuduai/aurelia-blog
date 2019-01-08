@@ -75,6 +75,9 @@
   .text-muted{
     padding-right: 24px;
   }
+  .active{
+    text-decoration: line-through;
+  }
   
   .blog-header-logo {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;

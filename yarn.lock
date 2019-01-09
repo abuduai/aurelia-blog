@@ -1140,7 +1140,7 @@ aurelia-animator-css@^1.0.4:
     aurelia-pal "^1.0.0"
     aurelia-templating "^1.0.0"
 
-aurelia-binding@^2.0.0:
+aurelia-binding@^2.0.0, aurelia-binding@^2.1.5:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/aurelia-binding/-/aurelia-binding-2.1.7.tgz#8a74d5013aff2eaa7e9753db561f63e33fab8aed"
   integrity sha512-elp5ogl7Eny0HQ6f5ABRArkAjaYIA5cLaT4+1n/cZpQ6tcO0TKEv1FMPUZBFcy1yNYWoUCh3XSSDLDElrdugNg==
@@ -1305,7 +1305,7 @@ aurelia-pal-browser@^1.0.0:
   dependencies:
     aurelia-pal "^1.4.0"
 
-aurelia-pal@^1.0.0, aurelia-pal@^1.1.1, aurelia-pal@^1.3.0, aurelia-pal@^1.4.0:
+aurelia-pal@^1.0.0, aurelia-pal@^1.1.1, aurelia-pal@^1.3.0, aurelia-pal@^1.4.0, aurelia-pal@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aurelia-pal/-/aurelia-pal-1.8.0.tgz#b6496fae8b335b8cecb1f8b98434ea4125fd2333"
   integrity sha512-Nc9S/JTUh1ErSUwg4INhgwBTe99ef8gYXZLjBnP4JJBmLcc/ChhOvj/dSRwluPkosggQgyj2pjla/9VAYHAXPg==
@@ -1341,7 +1341,7 @@ aurelia-router@^1.5.0:
     aurelia-path "^1.0.0"
     aurelia-route-recognizer "^1.2.0"
 
-aurelia-task-queue@^1.0.0, aurelia-task-queue@^1.1.0:
+aurelia-task-queue@^1.0.0, aurelia-task-queue@^1.1.0, aurelia-task-queue@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/aurelia-task-queue/-/aurelia-task-queue-1.3.1.tgz#3399e726d2f387b4101381141e321d2c2f1d789e"
   integrity sha512-Eyto+EVcezwrY3qHZwBvueKb3j+e/lgKp2nNbX1y6KVJmoO9XzK/KctViprpn7ZFl9YGYjJ9s+zJM8nFlQUr1g==
@@ -1386,7 +1386,7 @@ aurelia-templating-router@^1.0.0:
     aurelia-router "^1.5.0"
     aurelia-templating "^1.8.1"
 
-aurelia-templating@^1.0.0, aurelia-templating@^1.3.0, aurelia-templating@^1.8.1:
+aurelia-templating@^1.0.0, aurelia-templating@^1.3.0, aurelia-templating@^1.8.1, aurelia-templating@^1.9.0:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/aurelia-templating/-/aurelia-templating-1.10.1.tgz#1f0c0576c4d03b9a17397b59c399d36ef0374f48"
   integrity sha512-GDClZWk+32SUYMsEttRFE3+dIbzZeDf5vl9dvuO6ULe+erTUOq2TUf9pHknWZuzoXXdGSD2qQnk+AEZZWW3MOQ==
@@ -1418,6 +1418,18 @@ aurelia-tools@^2.0.0:
   dependencies:
     breeze-dag "^0.1.0"
     through2 "^2.0.0"
+
+aurelia-validation@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/aurelia-validation/-/aurelia-validation-1.3.2.tgz#87de9429364c2d44eccf480362521600f7e9c214"
+  integrity sha512-QD3I/A2hCYuIoEtF1U9wv6fQixtVZsfqUdANXtgsa8AST7dQ0fi1AawZ0nl9ZoGVYYvhLmDxkQ01jaQBw/izmg==
+  dependencies:
+    aurelia-binding "^2.1.5"
+    aurelia-dependency-injection "^1.4.1"
+    aurelia-logging "^1.5.0"
+    aurelia-pal "^1.8.0"
+    aurelia-task-queue "^1.3.1"
+    aurelia-templating "^1.9.0"
 
 aurelia-webpack-plugin@^3.0.0:
   version "3.0.0"

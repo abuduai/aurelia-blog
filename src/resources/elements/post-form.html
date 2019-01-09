@@ -1,0 +1,34 @@
+<template>
+  <h1>${title}</h1>
+  <div class="alert alert-danger" if.bind="error">
+      ${error}
+    </div>
+  <form submit.delegate="submit()">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter post title" value.bind="post.title & validateOnChange"/>
+      </div>
+     
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Enter post content...</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" value.bind="post.body & validateOnChange"></textarea>
+      </div>
+      <div class="form-check" repeat.for="tag of allTags">
+        <input class="form-check-input" type="checkbox" value.bind="tag" checked.bind="post.tags">
+        <label class="form-check-label" for="defaultCheck1">
+          ${tag}
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Tag name" value.bind="newtag">
+        <a href="" click.delegate="addTag()">Add New Tag</a>
+      </div>
+      <br/>
+
+      <div if.bind="controller.errors.length > 0" class="alert alert-danger" role="alert">
+          <div repeat.for="error of controller.errors">${error}</div>
+          <br />
+      </div>
+      <button type="submit" class="btn btn-primary" disabled.bind="controller.errors.length > 0">${title}</button>
+    </form>
+</template>

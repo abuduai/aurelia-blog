@@ -1,10 +1,14 @@
 import { inject } from 'aurelia-framework';
+import { AuthService } from '../common/services/auth-service';
 import { PostService } from '../common/services/post-service';
 
-@inject (PostService)
+
+@inject (AuthService, PostService)
 export class View {     
 
-  constructor(PostService) {
+  constructor(AuthService, PostService) {
+    
+    this.authService = AuthService;
     this.postService = PostService;
   }
 

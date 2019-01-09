@@ -5,5 +5,7 @@
   </div>
 
   <blog-post post.bind="post"></blog-post>
+
+  <a if.bind="authService.currentUser === post.author" route-href="route: post-edit; params.bind: {slug: post.slug}">Edit Post</a>
    
 </template>

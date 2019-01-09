@@ -19,7 +19,13 @@ export class App {
     this.subscription = this.ea.subscribe('user', user => {
       this.currentUser = this.authService.currentUser;
     });
+    this.updateSidebar();
+    this.postSubscription = this.ea.subscribe('post-updated', () => {
+      this.updateSidebar();
+    })
+  }
 
+  updateSidebar(){
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
@@ -41,6 +47,7 @@ export class App {
       {route: 'signup', name: 'signup', moduleId: PLATFORM.moduleName('auth/signup'), title: 'Sign Up'},
       {route: 'create-post', name: 'create-post', moduleId: PLATFORM.moduleName('posts/create'), title: 'Create Post'},
       {route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View post'},
+      {route: 'post/:slug/edit', name: 'post-edit', moduleId: PLATFORM.moduleName('posts/edit'), title: 'Edit post'},
       {route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View post by tag'},
       {route: 'archive/:archive', name: 'archive-view', moduleId: PLATFORM.moduleName('posts/archive-view'), title: 'View post by archive'}
     ]);
@@ -50,6 +57,7 @@ export class App {
 
   detached(){
     this.subscription.dispose();
+    this.this.postSubscription.dispose();
   }
 
   logout(){

@@ -33,6 +33,6 @@ node_modules
 /src/environment.ts
 
 # Certain files
-.firebase.js
+/src/firebase.js
 
 

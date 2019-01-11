@@ -1,5 +1,8 @@
 import firebase from "firebase/app";
 
+/**
+ * Credentials for the firebase
+ */
 const config = {
     apiKey: "AIzaSyBvjulH0zWQ-a-Hvkq1rVuHM93LR6aOqtM",
     authDomain: "aurelia-blog-3c67b.firebaseapp.com",

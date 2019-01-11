@@ -1,23 +1,28 @@
 import { inject} from 'aurelia-framework';
+import firebase from "../firebase";
+require('firebase/auth');
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
-import { AuthService } from '../common/services/auth-service';
 
-@inject(EventAggregator, AuthService, Router)
+
+@inject(EventAggregator, firebase, Router)
 export class Signup {     
-  constructor(EventAggregator, AuthService, Router) {
+  constructor(EventAggregator, firebase, Router) {
     this.ea = EventAggregator;
-    this.authService = AuthService;
+    this.firebase = firebase;
     this.router = Router;
+    this.user = {
+      email: '',
+      password: ''
+    }
   }
 
   signup(){
-    this.authService.signup(this.name).then(data => {
-      this.ea.publish('user', data.name);
+    this.firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password).then(user => {
+      this.ea.publish('user', user.email);
       this.router.navigateToRoute('home');
-    
     }).catch(error => {
-      this.error = error.message
+      this.error = error.message;
     });
 
   }

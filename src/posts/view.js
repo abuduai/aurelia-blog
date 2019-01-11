@@ -1,23 +1,24 @@
 import { inject } from 'aurelia-framework';
-import { AuthService } from '../common/services/auth-service';
-import { PostService } from '../common/services/post-service';
+import firebase from "../firebase";
+require("firebase/auth");
+require("firebase/database");
 
 
-@inject (AuthService, PostService)
+@inject (firebase)
 export class View {     
 
-  constructor(AuthService, PostService) {
-    
-    this.authService = AuthService;
-    this.postService = PostService;
+  constructor(firebase) {
+    this.firebase = firebase;
   }
 
   activate(params){
+    console.log('params----', params);
+    const path = `posts/${params.id}`;
     this.error = '';
-    this.postService.find(params.slug).then(data => {
-        this.post = data.post;
-    }).catch(error => {
-      this.error = error.message;
-    })
+    const postRef = this.firebase.database().ref(path);
+    postRef.on("value", (snapshot) => {
+      this.post = snapshot.val();
+      console.log('this.post---234', snapshot.val());
+    });
   }
 }

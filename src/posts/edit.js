@@ -16,7 +16,7 @@ export class Edit {
   }
 
   activate(params){
-    this.postService.find(params.slug).then(data => {
+    this.postService.find(params.id).then(data => {
         this.post = data.post;
     }).catch(error => {
         this.error = error.message;

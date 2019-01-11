@@ -1,22 +1,19 @@
 <template>
-  <h1>Sign Up</h1>
+    <br>
+  <h3>Sign Up</h3>
   <div class="alert alert-danger" if.bind="error">
       ${error}
     </div>
-  <form submit.delegate="signup()">
-      <div class="form-row align-items-center">
-        <div class="col-sm-3 my-1">
-          <label class="sr-only" for="inlineFormInputGroupUsername">Name</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">@</div>
-            </div>
-            <input value.bind="name" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Enter your name">
-          </div>
+    <form submit.delegate="signup()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value.bind="user.email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="col-auto my-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value.bind="user.password">
         </div>
-      </div>
-    </form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 </template>

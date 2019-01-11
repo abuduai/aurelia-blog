@@ -1,5 +1,6 @@
 <template bindable="error, title, posts">
         <require from="./blog-post"></require>
+        <require from="../value-converters/object-to-array"></require>
       
         <div class="alert alert-danger" if.bind="error">
             ${error}
@@ -9,7 +10,7 @@
             </div>
         <div repeat.for="post of posts">
           <blog-post post.bind="post"></blog-post>
-              <a route-href="route: post-view; params.bind: {slug: post.slug}"> View Post &raquo;</a>
+              <a route-href="route: post-view; params.bind: {id: post.id}"> View Post &raquo;</a>
               <hr />
         </div>
  </template>

@@ -31,3 +31,8 @@ node_modules
 /scripts
 /src/environment.js
 /src/environment.ts
+
+# Certain files
+.firebase.js
+
+

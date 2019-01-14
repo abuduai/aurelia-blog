@@ -6,6 +6,7 @@
 
   <blog-post post.bind="post"></blog-post>
 
-  <a if.bind="authService.currentUser === post.author" route-href="route: post-edit; params.bind: {id: post.id}">Edit Post</a>
+  <a if.bind="currentUser === post.author" route-href="route: post-edit; params.bind: {id: postId}">Edit Post</a>
+  <a if.bind="currentUser === post.author" class="badge badge-danger" click.delegate="deletePost(postId)">Delete Post</a>
    
 </template>

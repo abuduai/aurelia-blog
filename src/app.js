@@ -1,20 +1,20 @@
 import { PLATFORM } from "aurelia-framework";
 import { inject } from "aurelia-framework";
+import _ from "lodash";
 import { EventAggregator } from "aurelia-event-aggregator";
 import firebase from "./firebase";
 require("firebase/auth");
-import { PostService } from "./common/services/post-service";
 
 
-@inject(EventAggregator, PostService, firebase)
+@inject(EventAggregator, firebase)
 export class App {
-  constructor(EventAggregator, PostService, firebase) {
+  constructor(EventAggregator, firebase) {
     this.ea = EventAggregator;
-    this.postService = PostService;
     this.firebase = firebase;
   }
 
   attached() {
+    this.archives = [];
     this.firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.currentUser = user.email;
@@ -33,22 +33,19 @@ export class App {
   }
 
   updateSidebar() {
-    this.postService
-      .allTags()
-      .then(data => {
-        this.tags = data.tags;
-      })
-      .catch(error => {
-        this.error = error.message;
+      const archivesRef = this.firebase.database().ref('archives');
+      const tagsRef = this.firebase.database().ref('tags');
+      archivesRef.on("value", (snapshot) => {
+        this.allArchives = snapshot.val();
+        _.forEach(this.allArchives, (value, key) => {
+          this.archives.push(value);
+        });
       });
 
-    this.postService
-      .allArchives()
-      .then(data => {
-        this.archives = data.archives;
-      })
-      .catch(error => {
-        this.error = error.message;
+      
+      tagsRef.on("value", (snapshot) => {
+        this.allTags = snapshot.val();
+        this.tags= _.map(this.allTags, item => { return item;})
       });
   }
 

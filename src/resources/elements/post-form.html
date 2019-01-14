@@ -1,5 +1,5 @@
 <template>
-  <h3>${title}</h3>
+  <h5>${title}</h5>
   <div class="alert alert-danger" if.bind="error">
       ${error}
     </div>
@@ -13,7 +13,7 @@
         <label for="exampleFormControlTextarea1">Enter post content...</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" value.bind="post.body & validateOnChange"></textarea>
       </div>
-      <div class="form-check" repeat.for="tag of allTags">
+      <div class="form-check" repeat.for="tag of tags">
         <input class="form-check-input" type="checkbox" value.bind="tag" checked.bind="post.tags">
         <label class="form-check-label" for="defaultCheck1">
           ${tag}
@@ -30,5 +30,6 @@
           <br />
       </div>
       <button type="submit" class="btn btn-primary" disabled.bind="controller.errors.length > 0">${title}</button>
+      <button class="btn btn-danger" click.delegate="deletePost()">Delete</button>
     </form>
 </template>

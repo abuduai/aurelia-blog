@@ -1,29 +1,35 @@
 import { inject } from 'aurelia-framework';
-import { PostService } from '../../common/services/post-service';
 import {bindable} from 'aurelia-framework';
+import _ from "lodash";
+import firebase from "../../firebase";
+require("firebase/database");
 import { ValidationRules, ValidationControllerFactory, validationMessages } from 'aurelia-validation';
 
 
-@inject (PostService, ValidationControllerFactory)
+@inject (firebase, ValidationControllerFactory)
 export class PostForm {
   @bindable post;
   @bindable title;
 
-  constructor(PostService, ValidationControllerFactory) {
-    this.postService = PostService;
+  constructor(firebase, ValidationControllerFactory) {
+    this.firebase = firebase;
     this.controller = ValidationControllerFactory.createForCurrentScope();
   }
 
   attached(){
-    this.postService.allTags().then(data => {
-        this.allTags = data.tags;
-    }).catch(error => {
-        this.error = error.message;
-    })
+    this.tags = [];
+    const tagsRef = this.firebase.database().ref("tags");
+
+    tagsRef.on("value", snapshot => {
+      this.allTags = snapshot.val();
+      _.forEach(this.allTags, (value, key) => {
+        this.tags.push(value);
+      });
+    });
   }
 
   addTag(){
-    this.allTags.push(this.newtag);
+    this.tags.push(this.newtag);
     this.post.tags.push(this.newtag);
     this.newtag = '';
   }

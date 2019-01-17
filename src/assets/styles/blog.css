@@ -3,6 +3,7 @@
 
 /* Font resources */
 /* cyrillic */
+@import 'prism.css';
 @font-face {
     font-family: 'Playfair Display';
     font-style: normal;
@@ -68,7 +69,10 @@
   }
 
 
-  .badge-danger{
+iframe {
+  width: 100%;
+}
+.badge-danger{
     cursor: pointer;
   }
 
@@ -76,6 +80,7 @@
 .blog-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 24px;
   }
   .text-muted{
     padding-right: 24px;
@@ -182,7 +187,6 @@
   }
   .blog-post-title {
     margin-bottom: .25rem;
-    font-size: 2.5rem;
   }
   .blog-post-meta {
     margin-bottom: 1.25rem;
@@ -202,3 +206,41 @@
   .blog-footer p:last-child {
     margin-bottom: 0;
   }
+
+  /*
+   * Prismjs custom style for the code element
+   */
+   div.code-toolbar > .toolbar a {
+    cursor: pointer;
+    color: #218838;
+}
+div.code-toolbar > .toolbar a:hover {
+  background-color: transparent;
+  color: #218838;
+}
+pre{
+  border-left: 4px solid #aed581;
+}
+
+#demo-window-title{
+  cursor: pointer;
+}
+
+.codecontainer{
+  width: 33.333%;
+}
+
+.selected{
+  color: #218838 !important;
+  font-weight: 900;
+  text-decoration: line-through !important;
+}
+.demo-lang-name{
+  cursor: pointer;
+}
+
+iframe{
+  border: 1px solid #F1F1F1;
+}
+
+  

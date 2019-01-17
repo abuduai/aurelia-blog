@@ -1,6 +1,5 @@
 <template bindable="error, title, posts">
         <require from="./blog-post"></require>
-        <require from="../value-converters/object-to-array"></require>
       
         <div class="alert alert-danger" if.bind="error">
             ${error}

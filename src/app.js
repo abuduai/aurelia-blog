@@ -1,6 +1,7 @@
 import { PLATFORM } from "aurelia-framework";
 import { inject } from "aurelia-framework";
 import _ from "lodash";
+import Prism from "prismjs";
 import { EventAggregator } from "aurelia-event-aggregator";
 import firebase from "./firebase";
 require("firebase/auth");
@@ -14,6 +15,7 @@ export class App {
   }
 
   attached() {
+    Prism.highlightAll();
     this.archives = [];
     this.firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -35,6 +37,7 @@ export class App {
   updateSidebar() {
       const archivesRef = this.firebase.database().ref('archives');
       const tagsRef = this.firebase.database().ref('tags');
+
       archivesRef.on("value", (snapshot) => {
         this.allArchives = snapshot.val();
         _.forEach(this.allArchives, (value, key) => {
@@ -42,10 +45,9 @@ export class App {
         });
       });
 
-      
       tagsRef.on("value", (snapshot) => {
         this.allTags = snapshot.val();
-        this.tags= _.map(this.allTags, item => { return item;})
+        this.tags= _.map(this.allTags, item => { return item;});
       });
   }
 
@@ -69,6 +71,12 @@ export class App {
         name: "signup",
         moduleId: PLATFORM.moduleName("auth/signup"),
         title: "Sign Up"
+      },
+      {
+        route: "demo",
+        name: "post-demo",
+        moduleId: PLATFORM.moduleName("posts/demo"),
+        title: "Demo"
       },
       {
         route: "create-post",

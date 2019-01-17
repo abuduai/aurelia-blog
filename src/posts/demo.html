@@ -1,0 +1,50 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link selected demo-lang-name"  name="html">HTML</a>
+              </li>
+              <li class="nav-item  demo-lang-name">
+                <a class="nav-link selected" name="css">CSS</a>
+              </li>
+              <li class="nav-item demo-lang-name">
+                <a class="nav-link selected"  name="js">JavaScript</a>
+              </li>
+            </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="codecontainer" id="htmlContainer">
+          <span class="badge badge-pill badge-light" id="demo-window-title">HTML</span>
+        <textarea id="htmlCodeContent"> </textarea>
+      </div>
+      <div class="codecontainer" id="cssContainer">
+          <span class="badge badge-pill badge-light" id="demo-window-title">CSS</span>
+        <textarea id="cssContent"></textarea>
+      </div>
+      <div class="codecontainer" id="jsContainer">
+          <span class="badge badge-pill badge-light" id="demo-window-title">JS</span>
+        <textarea id="jsContent"></textarea>
+      </div>
+  </div>
+  <br />
+  <div class="row">
+      <button
+      type="button"
+      class="btn btn-success btn-block"
+      click.delegate="run()">
+      Run The Code
+    </button>
+  </div>
+  <br />
+  <div class="row">
+      <iframe id="resultFrame">
+          <html>
+            <body></body>
+          </html>
+        </iframe>
+  </div>
+  
+</template>

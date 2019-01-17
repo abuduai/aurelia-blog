@@ -29,8 +29,15 @@ export class PostForm {
   }
 
   addTag(){
-    this.tags.push(this.newtag);
-    this.post.tags.push(this.newtag);
+    if(_.includes(this.tags, this.newtag)){
+      this.tagExistError = "Select this tag from the list above !";
+      return this.tagExistError;
+    } else {
+      this.tags.push(this.newtag);
+      this.post.tags.push(this.newtag);
+    }
+    
+    
     this.newtag = '';
   }
 
@@ -44,10 +51,9 @@ export class PostForm {
     ValidationRules
     .ensure('title').displayName('Title')
     .required().minLength(3)
-    .ensure('body').displayName('Body')
+    .ensure('htmlCode').displayName('HTML Code')
     .required().minLength(10)
     .on(this.post);
-
     this.controller.validate();
     }
   }

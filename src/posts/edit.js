@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
+import { createTime } from "../helper/helper";
 import firebase from "../firebase";
 require("firebase/auth");
 require("firebase/database");
@@ -32,7 +33,7 @@ export class Edit {
     this.firebase.auth().onAuthStateChanged(user => {
       if (user) {
         let updates = {};
-        const time = this.formatDate(new Date());
+        const time = createTime();
         this.post.createdAt = time;
         updates[`posts/${this.postId}`] = this.post;
         
@@ -47,28 +48,4 @@ export class Edit {
       }
     });
   }
-
-  /* Helper function to format the date
-  * @param {*} date
-  */
- formatDate(date) {
-   var monthNames = [
-     "January",
-     "February",
-     "March",
-     "April",
-     "May",
-     "June",
-     "July",
-     "August",
-     "September",
-     "October",
-     "November",
-     "December"
-   ];
-   var monthIndex = date.getMonth();
-   var year = date.getFullYear();
-
-   return monthNames[monthIndex] + " " + year;
- }
 }

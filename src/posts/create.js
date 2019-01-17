@@ -1,6 +1,7 @@
 import { inject } from "aurelia-framework";
 import { Router } from "aurelia-router";
 import { EventAggregator } from "aurelia-event-aggregator";
+import { createTime } from "../helper/helper";
 import _ from "lodash";
 import firebase from "../firebase";
 require("firebase/auth");
@@ -18,7 +19,9 @@ export class Create {
     this.title = "Create Post";
     this.post = {
       title: "",
-      body: "",
+      htmlCode: "",
+      cssCode: "",
+      jsCode: "",
       tags: [],
       author: ""
     };
@@ -43,12 +46,14 @@ export class Create {
         const postsRef = this.firebase.database().ref("posts");
         const archivesRef = this.firebase.database().ref("archives");
         const tagsRef = this.firebase.database().ref("tags");
-        const time = this.formatDate(new Date());
+        const time = createTime();
         postsRef
           .push()
           .set({
             title: this.post.title,
-            body: this.post.body,
+            htmlCode: this.post.htmlCode,
+            cssCode: this.post.cssCode,
+            jsCode: this.post.jsCode,
             author: user.email,
             tags: this.post.tags,
             createdAt: time
@@ -62,6 +67,7 @@ export class Create {
             if (!isArchiveExist) {
               archivesRef.push().set(time);
             } else if(length > 0) {
+              console.log('this.tags', this.tags);
               _.forEach(this.post.tags, item => {
                   tagsRef.push().set(item);
               });
@@ -79,51 +85,5 @@ export class Create {
     });
   }
 
-  /**
-   * Helper function to format the date
-   * @param {*} date
-   */
-  formatDate(date) {
-    var monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-
-    return monthNames[monthIndex] + " " + year;
-  }
-
-  /**
-   * Convert the posts object to an array for repeat.for
-   */
-
-  _toArray(obj) {
-    let temp = [];
-    for (let item in obj) {
-      if (obj.hasOwnProperty(item)) {
-        const postsList = {
-          id: item,
-          author: obj[item].author,
-          body: obj[item].body,
-          tags: obj[item].tags,
-          title: obj[item].title,
-          createdAt: obj[item].createdAt
-        };
-        temp.push(postsList);
-      }
-    }
-
-    return temp;
-  }
+ 
 }

@@ -76,6 +76,13 @@ iframe {
     cursor: pointer;
   }
 
+  .welcomeText{
+    display: block;
+  }
+.currentUser{
+  font-size: 0.8rem;
+}
+
   
 .blog-header {
     line-height: 1;

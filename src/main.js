@@ -3,6 +3,7 @@ import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 

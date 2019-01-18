@@ -85,6 +85,12 @@ export class App {
         title: "Create Post"
       },
       {
+        route: "create-cv",
+        name: "create-cv",
+        moduleId: PLATFORM.moduleName("cv/cv"),
+        title: "Create CV"
+      },
+      {
         route: "post/:id",
         name: "post-view",
         moduleId: PLATFORM.moduleName("posts/view"),

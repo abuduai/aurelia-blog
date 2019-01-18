@@ -1,0 +1,75 @@
+{
+    "cvs": {
+        "userId": {
+            "firstname":"Aihaiti",
+            "lastname": "Abudureheman",
+            "profilePic": "https://api.adorable.io/avatars/225/abott@adorable.png",
+            "profession": "Front-End Developer",
+            "mobile": "+358404803426",
+            "email": "baghrash1985@gmail.com",
+            "street": "Kohmankaari 23 A40",
+            "city": "Tampere",
+            "postalCode": "33310",
+            "country": "Finland",
+            "dob": "1985-12-10",
+            "pob": "China",
+            "nationality": "Finnish",
+            "socialProfiles": {
+                "profileId1": {
+                    "name": "linkedin",
+                    "profileURL": "https://www.linkedin.com/in/aihaitiabudureheman"
+                }
+            },
+            "bio": "I am a passionate Front-End Developer for Web and Mobile. I have more than two years of real industrial experiences in modern web development technologies like JavaScript, HTML, CSS and their popular frameworks like AngularJS, ReactJS, React-Native, Bootstrap, AngularJS Material, ReactJS Material UI, NativeBase, SASS, SCSS and LESS. Webpack and Git have been my best friend during my daily work. I have enough hands on experiences to work on a project independently or as part of team.",
+            "experiences": {
+              "expID": {
+                  "jobTitle":"Front-End Developer",
+                  "employer": "Tecnotree Corporation",
+                  "from": "Jan 2017",
+                  "till": "Dec 2018",
+                  "location": "Tampere",
+                  "mainTasks": ["I use  this tool to did this first", "I use  this tool to did this second", "I use  this tool to did this first"]
+              }
+            },
+            "education": {
+                "eduId": {
+                    "school": "Centria University of Applied Sciences",
+                    "degree": "Bachelor of Information Tecnnology",
+                    "from":"Jan 2013",
+                    "till":"Dec 2017",
+                    "location":"Kokkola",
+                    "summary": "During this four years of my academic life I completed many different subjects. It includes science courses like Math, Chemistry and Physics, programming language courses like JavaScript, C++, Java, network related courses like Cisco networking, system related courses like Operating system, C language, language courses like Professional English Writing, Professional English Speaking, basic and intermediate level Finnish , and some other courses which are related to software business, project management and leadership."
+                }
+            },
+            "skills": {
+                "skillId1": {
+                    "name": "JavaScript",
+                    "level": "Senior"
+                },
+                "skillId2": {
+                    "name": "HTML",
+                    "level": "Senior"
+                },
+                "skillId3": {
+                    "name": "CSS",
+                    "level": "Senior"
+                }
+            },
+            "languages": {
+                "langId1": {
+                    "name": "English",
+                    "level": "Fluent"
+                },
+                "langId2": {
+                    "name": "Chinese",
+                    "level": "Fluent"
+                },
+                "langId3": {
+                    "name": "Finnish",
+                    "level": "Good"
+                }
+            },
+            "hobbies": ["Running", "Watching movies", "Hiking"]
+        }
+    }
+}
